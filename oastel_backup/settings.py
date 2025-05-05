@@ -57,7 +57,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'oastel_final.urls'
+ROOT_URLCONF = 'oastel_backup.urls'
 
 TEMPLATES = [
     {
@@ -74,7 +74,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'oastel_final.wsgi.application'
+WSGI_APPLICATION = 'oastel_backup.wsgi.application'
 
 
 # Database
