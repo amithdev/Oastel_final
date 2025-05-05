@@ -1,0 +1,1247 @@
+.navbar {
+  width: 100%;
+  max-width: 1728px;
+  height: 100px !important;
+  background-color: #fff !important;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05) !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5vw;
+  box-sizing: border-box;
+  margin: auto;
+}
+
+.navbar .wrapper {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-brand {
+  font-family: 'Gilroy-SemiBold', sans-serif;
+  font-weight: 600;
+  font-size: 48px !important;
+  line-height: 44.1px;
+  letter-spacing: -0.04em;
+  color: #004d2f !important;
+  text-decoration: none;
+  margin-left: 0 !important;
+  flex-shrink: 0;
+}
+
+.navbar-divider {
+  width: 100%;
+  height: 1px;
+  background-color: rgba(128, 128, 128, 0.5);
+  margin: 0 auto;
+}
+
+  .nav-links {
+    display: flex;
+    gap: 20px;
+  }
+  .nav-link {
+    color: #035f3c;
+    font-size: 25px !important;
+    font-weight: 600  !important;
+    
+    text-decoration: none;
+  }
+  .nav-link:hover {
+    text-decoration: underline;
+  }
+  
+ 
+  
+  /* Banner Styling */
+  .banner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 50px 5vw;
+    margin: 0 auto;
+    max-width: 1440px;
+    flex-wrap: wrap; /* 👈 allows items to drop in smaller screens */
+  }
+  
+  /* Banner Text Styling */
+  .banner-text {
+    max-width: 45%;
+    flex: 1; /* Ensures proper alignment */
+  }
+  .banner-text h1 {
+    font-size: 100px;
+    font-weight: 400;
+    color: #262626;
+    font-family: 'Gilroy-SemiBold', sans-serif;
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  
+  /* Adjusted Banner Paragraph to Fit 293x87 Layout */
+  .banner-text p {
+    font-family: 'Gilroy-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 23px;  /* Adjusted for layout */
+    line-height: 21px;  /* Ensures proper spacing */
+    letter-spacing: -0.02em;
+    color: #666;
+    width: 90%;
+    max-width: 350px;
+    height: auto;
+    overflow: hidden;  /* Ensures no overflow */
+    text-overflow: ellipsis;
+    display: block;
+  }
+  
+  /* Banner Text Styling */
+  .banner-text p {
+    font-family: 'Gilroy-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 23px;  /* Adjusted for layout */
+    line-height: 21px;  /* Ensures proper spacing */
+    letter-spacing: 0.00em;
+    color: #666;
+    width: 293px;  /* Fixed width */
+    height: 87px;  /* Fixed height */
+    overflow: hidden;  /* Ensures no overflow */
+    text-overflow: ellipsis;
+    display: block;
+  }
+  
+  /* Make only the highlighted words bolder */
+  .banner-text p .highlight {
+    font-weight: 600;  /* Slightly bolder */
+  }
+  
+  
+  /* Curved Frame for Banner Images */
+  .banner-img {
+    flex: 1;
+    max-width: 50%;
+    height: 426px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.15);
+  }
+  
+  
+  /* Banner Image Styling */
+  .banner-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    border-radius: 20px;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  
+  .banner-img img.active {
+    opacity: 1;
+  }
+  
+  /* Services Section */
+  .services {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px 180px;
+    text-align: center;
+  }
+  .service-card {
+    padding: 20px;
+    border-radius: 10px;
+    width: 250px;
+    transition: 0.3s;
+  }
+  .service-card:hover {
+    background-color: #E6F2E3;
+  }
+  .service-card img {
+    width: 60px;
+    margin-bottom: 10px;
+  }
+  
+  /* Import Custom Fonts */
+  @font-face {
+    font-family: 'Gilroy-Regular';
+    src: url('../fonts/Gilroy-Regular.ttf') format('truetype');
+    font-weight: 400;
+  }
+  @font-face {
+    font-family: 'Gilroy-SemiBold';
+    src: url('../fonts/Gilroy-SemiBold.ttf') format('truetype');
+    font-weight: 600;
+  }
+
+.booking-section {
+  width: 100%;
+  max-width: 1400px;
+  padding: 30px;
+  height: 200px;
+  background-color: #F9F9F9;
+  border-radius:50px;
+  position: relative;
+  margin: 50px auto 0 auto; /* Ensures exact 120px gap from banner */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(128, 128, 128, 0.5); /* Grey border */
+}
+
+    
+
+
+.booking-options {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 0;
+  padding: 0;
+  margin: 0;
+  border-radius: 50px;
+  overflow: hidden; /* ✅ Ensures no child overflows the container */
+}
+
+
+.booking-card {
+  width: 33.333%;
+  height: 198px;
+  margin: 0;
+  padding: 2rem;
+  background-color: #F9F9F9;
+  border-radius: 0;               /* 🧨 Remove corner radius */
+  box-sizing: border-box;
+  transition: background-color 0.3s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+a.booking-card {
+  text-decoration: none;    /* ✅ Removes underline from the link */
+  color: inherit;           /* ✅ Keeps the text color consistent */
+  display: block;           /* ✅ Makes the whole card clickable */
+}
+
+a.booking-card h3 {
+  text-decoration: none;    /* ✅ Specifically removes underline from h3 */
+  color: inherit;
+}
+
+
+.booking-card img {
+    width: 72px;
+    height: 72px;
+    margin-bottom: 1rem;
+    transition: filter 0.3s ease;
+}
+
+.booking-card h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #0E7C61;
+  transition: color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+.booking-card:hover::after {
+  display: none;
+}
+
+.booking-card:hover {
+  background-color: #0A4F34;
+  border-radius: 0;               /* 🧨 Ensure no curves = full fill */
+  margin: 0;                      /* ✅ Remove side margins */
+}
+
+
+
+.booking-card:hover h3 {
+  color: white;
+}
+
+.booking-card:hover img {
+  filter: brightness(0) invert(1); /* Inverts PNG icon color to white if it's dark */
+}
+
+.perks-section {
+  background-color: #F3F8F7;
+  padding: 80px 180px;
+  width: 100%;
+  margin-top: 100px; /* 👈 Adds spacing above */
+}
+
+.perks-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+  margin-top: 85px; /* spacing from previous section */
+  gap: 30px;
+}
+
+/* Left: Title + horizontal line */
+
+
+/* Left: Title + horizontal line */
+.perks-title-line {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 1500px;
+}
+
+.perks-title-line h2 {
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  color: #000000;
+  margin: 0;
+  width: 1500px;
+  height: 40px;
+}
+
+.perks-horizontal-line {
+  width: 1000px;             /* 🎯 Exact width as per your request */
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-right: -20px;        /* ✅ Keeps space between title and line */
+  flex-shrink: 0; 
+}
+
+/* Right side: subtitle paragraph */
+.perks-subtitle {
+  position: relative;
+  left: -450px; /* 👈 shifts it to match Figma left: 1103px inside section */
+  top: 40px;
+  margin-top: 20px;
+  width: 445px;
+  height: 72px;
+}
+
+.perks-subtitle p {
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: #666666;
+  margin: 0;
+  text-align: right;
+  width: 445px;
+  height: 72px;
+}
+
+.perk-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: space-between; /* Centers the entire row */
+  padding: 0 60px; /* Adds margin from left & right */
+  box-sizing: border-box;
+  margin-top: 40px;
+}
+
+.perk-card {
+  width: 270px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.perk-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.perk-text {
+  font-family: 'Alike', serif;
+  font-weight: 400;
+  font-size: 28px;
+  height: auto;
+  line-height: 120%;
+  margin: 20px 20px 10px 20px;
+  text-align: left;
+  letter-spacing: -0.02em;
+  color: #000000;
+  width: 238px;
+  
+  
+}
+
+
+.perk-price {
+  font-family: 'Alike', serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+  color: #0A4F34; /* optional brand green */
+  margin: 0;
+}
+
+
+.perk-subtext {
+  font-family: 'Alike', serif;
+  font-weight: 400;
+  font-size: 20px;
+  height: auto;
+  line-height: 130%;
+  margin: 0 20px 20px 20px;
+  text-align: left;
+  letter-spacing: -0.02em;
+  color: #000000;
+  width: 238px;
+  
+}
+
+.perks-link {
+  text-align: left;
+  margin-top: 50px;
+}
+
+.perks-link a {
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 120%;
+  letter-spacing: -0.02em;
+
+  color: #0A4F34;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-thickness: 1px;
+  text-decoration-color: #0A4F34;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 2px;
+}
+
+/* Remove underline + make bold for "Blogs" */
+.perks-link .no-underline {
+  text-decoration: none;
+  font-weight: 600;
+  color: #0A4F34;
+}
+
+
+@font-face {
+  font-family: 'Gilroy-Regular';
+  src: url('../fonts/Gilroy-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Gilroy-Medium';
+  src: url('../fonts/Gilroy-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Gilroy-Bold';
+  src: url('{% static "fonts/Gilroy-Bold.woff2" %}') format('woff2'),
+       url('{% static "fonts/Gilroy-Bold.woff" %}') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+
+/* ==== FAQ v2 Styling ==== */
+
+.faq-section-v2 {
+  background-color: #ffffff;
+  padding: 120px 180px;
+}
+
+.faq-heading-title {
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: -0.04em;  /* -4% letter spacing */
+  
+  color: #000;
+  margin-bottom: 80px;
+}
+
+.faq-layout {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 60px;
+}
+
+.faq-intro h2 {
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 80%;
+  letter-spacing: -0.04em;  /* -4% letter spacing */
+  color: #000;
+  margin: 0;
+  white-space: pre-line;
+}
+
+
+/* Right FAQ List */
+.faq-list {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* FAQ Item */
+.faq-item-v2 {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  padding-bottom: 8px;
+}
+
+/* Question */
+.faq-question-v2 {
+  background: none;
+  border: none;
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 120%;
+  width: 100%;
+  text-align: left;
+  padding: 20px 0;
+  position: relative;
+  cursor: pointer;
+  color: #000;
+}
+
+.faq-question-v2::after {
+  content: "⌄";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.faq-question-v2.active::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+/* Answer */
+.faq-answer-v2 {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  opacity: 0;
+  margin-top: 0;
+  transition: max-height 0.6s ease, opacity 0.4s ease, margin-top 0.4s ease;
+}
+
+.faq-answer-v2.show {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 10px;
+}
+
+.faq-answer-v2 p {
+   background: none;
+  border: none;
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 120%;
+  width: 100%;
+  text-align: left;
+  padding: 20px 0;
+  position: relative;
+  color: #000;
+}
+
+.testimonials-section {
+  background-color: #F3F8F7;
+  padding: 100px 180px;
+}
+
+.testimonials-header h2 {
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: -0.04em;
+  color: #000;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.testimonials-header p {
+  font-family: 'Gilroy-Light', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: #666;
+  text-align: left;
+  max-width: 900px; /* optional for cleaner layout */
+  margin: 0;
+  margin-bottom: 100px;
+}
+
+.testimonial-cards {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.testimonial-card {
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 30px;
+  width: 312px;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.05);
+  
+}
+
+.quote-mark {
+  font-size: 100px;
+  line-height: 1;
+  color: #0A4F34; /* Deep green */
+  margin: 0 0 20px 0;
+  font-family: 'Georgia', serif; /* Adds class & elegance */
+  position: relative;
+  top: -10px;
+}
+
+.testimonial-text {
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.02em;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-size: 18px;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+.stars {
+  display: inline-flex;
+  gap: 6px;
+  color: #F5A623;
+  font-size: 20px;
+  animation: popIn 0.6s ease-in-out;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.rating:hover .stars {
+  transform: scale(1.1);
+  text-shadow: 0px 0px 8px rgba(255, 193, 7, 0.4);
+}
+
+@keyframes popIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.5) rotate(-10deg);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) rotate(0);
+  }
+}
+
+
+
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.reviewer-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  background-color: #ddd;
+}
+
+.reviewer-info .name {
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-size: 16px;
+  color: #000;
+}
+
+.reviewer-info .country {
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+
+.flag-icon {
+  width: 14px;
+  height: 10px;
+  margin-right: 6px;
+  object-fit: cover;
+  vertical-align: middle;
+}
+
+.about-oastel-section {
+  background-color: #ffffff;
+  padding: 100px 180px;
+  text-align: center;
+}
+
+.about-title {
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.about-description {
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 160%;
+  color: #333;
+  max-width: 1000px;
+  margin: 0 auto 80px auto;
+}
+
+.partners-section {
+  margin-top: 50px;
+}
+
+.partners-title {
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-size: 28px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+  margin-bottom: 40px;
+}
+
+.partner-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 150px;
+  flex-wrap: wrap;
+}
+
+
+.partner-logos img {
+  max-width: 100%;
+  width: 300px;
+  height: auto;
+  object-fit: contain;
+}
+
+
+.site-footer {
+  width: 100%;
+  background-color: #0C7157;
+  padding: 60px 5vw;  /* 🔥 Use vw instead of px for responsiveness */
+  color: white;
+  box-sizing: border-box;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: none;         /* ❌ REMOVE max-width restriction */
+  box-sizing: border-box;
+}
+
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.secure-text {
+  font-family: 'Gilroy-Medium', sans-serif;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: white;
+  text-align: left
+}
+
+.stripe-badge {
+  height: 32px;
+}
+
+.payment-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin: 40px 0 20px;
+}
+
+.payment-logos img {
+  height: 60px;
+  width: auto;
+}
+
+.copyright {
+  font-family: 'Gilroy-Light', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 100%;
+  letter-spacing: -0.02em;
+  color: white;
+  text-align: left;
+}
+
+.secure-text,
+.payment-logos,
+.copyright {
+  text-align: left !important; /* ✅ ensures left alignment */
+}
+
+body {
+  overflow-x: hidden; /* Prevents horizontal scroll on any screen */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+  .banner-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .booking-card {
+    width: 100%;
+  }
+
+  .banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner-text,
+  .banner-img {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
+/* ================== RESPONSIVE FIXES ================== */
+@media (max-width: 1440px) {
+  .banner {
+    margin: 0 60px;
+    gap: 40px;
+  }
+
+  .banner-text h1 {
+    font-size: 70px;
+  }
+
+  .booking-section {
+    padding: 20px;
+  }
+
+  .perks-section {
+    padding: 60px;
+  }
+
+  .booking-section {
+    max-width: 1200px; /* Or whatever width you use for other pages */
+    margin: 0 auto;     /* Center align */
+    padding: 0 24px;    /* Optional: add some padding on smaller screens */
+    box-sizing: border-box;
+  }
+  
+  
+
+  .testimonial-card {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .testimonial-cards {
+    justify-content: center;
+  }
+
+  .faq-section-v2 {
+    padding: 100px 100px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .banner {
+    margin: 0 60px;
+    padding: 40px 4vw;
+  }
+
+  .banner-text h1 {
+    font-size: 60px;
+  }
+
+  .perk-cards {
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .faq-layout {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .faq-intro h2 {
+    font-size: 48px;
+    text-align: center;
+  }
+
+  .faq-list {
+    width: 100%;
+  }
+
+  .partners-section {
+    text-align: center;
+  }
+
+  .partners-title {
+    font-size: 24px;
+  }
+
+  .partner-logos {
+    gap: 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+    margin: 0;
+  }
+
+  .banner-img {
+    width: 90%;
+    height: auto;
+  }
+
+  .banner-text {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .banner-text h1 {
+    font-size: 40px;
+  }
+
+  .booking-options {
+    flex-direction: column;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .booking-card {
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .perks-section {
+    padding: 60px 40px;
+  }
+
+  .perk-cards {
+    gap: 40px;
+    justify-content: center;
+  }
+
+  .faq-section-v2 {
+    padding: 80px 40px;
+  }
+
+  .testimonials-section {
+    padding: 80px 40px;
+  }
+
+  .about-oastel-section {
+    padding: 80px 40px;
+  }
+
+  .footer-content {
+    margin-left: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .banner-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .banner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .banner-text,
+  .banner-img {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .booking-card {
+    width: 100%;
+  }
+
+  .perk-card {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .faq-intro h2 {
+    font-size: 36px;
+  }
+
+  .faq-question-v2 {
+    font-size: 20px;
+  }
+
+  .faq-answer-v2 p {
+    font-size: 18px;
+  }
+
+  .footer-content {
+    margin-left: 20px;
+  }
+}
+/* ================== END RESPONSIVE ================== */
+
+
+/* PERKS FIX */
+.perk-card {
+  width: 100%;
+  max-width: 270px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+/* PERK CARDS CONTAINER */
+.perk-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px;
+  justify-content: center;
+  padding: 0 20px;
+  margin-top: 60px;
+}
+
+/* PERK TEXT FIX */
+.perk-text,
+.perk-subtext {
+  margin-left: 20px;
+  margin-right: 20px;
+  text-align: left;
+  width: auto;
+}
+
+@media (max-width: 1024px) {
+
+  html, body {
+    overflow-x: hidden; /* ✅ This ensures no horizontal scroll */
+    width: 100%;
+  }
+
+  .banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 30px 20px;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .banner-text {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    text-align: center;
+  }
+
+
+  .banner-text h1 {
+    font-size: 50px;
+    text-align: center;
+  }
+
+  .banner-text p {
+    font-size: 18px;
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .banner-img {
+    width: 100%;
+    max-width: 600px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+    display: block !important; /* ✅ FORCES visibility */
+
+  }
+  
+    .banner-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    z-index: 0;
+  }
+  
+  .banner-img img.active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+
+  .booking-section {
+    padding: 40px;
+    width: 90%;
+    max-width: 1000px;
+    margin: 40px auto;
+    border-radius: 30px;
+    height: auto;
+  }
+
+  .booking-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .booking-card {
+    width: 30%;
+    max-width: 250px;
+    height: auto;
+    padding: 20px;
+    border-radius: 20px;
+    text-align: center;
+  }
+
+  .booking-card img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .booking-card h3 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+
+
+  .perks-section {
+    padding: 60px 20px;
+  }
+
+  .perks-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .perks-title-line h2 {
+    width: auto;
+  }
+
+  .perks-horizontal-line {
+    display: none;
+  }
+
+  .perks-subtitle {
+    position: static;
+    text-align: center;
+    width: 100%;
+  }
+
+  .partners-section {
+    text-align: center;
+    padding: 60px 20px;
+  }
+
+  .partner-logos {
+    gap: 40px;
+  }
+
+  .partner-logos img {
+    width: 200px;
+  }
+}

@@ -1,0 +1,221 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Confirm Your Adventure</title>
+  <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/booking.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+</head>
+<body>
+
+{% include 'core/navbar.html' %}
+
+<section class="booking-wrapper">
+  <div class="booking-box">
+    <!-- Header -->
+    <div class="booking-header">
+      <h2>Confirm Your Adventure</h2>
+      <p class="selected-tour">Tour Selected : <strong>{{ tour.title }}</strong></p>
+
+    </div>
+
+    <!-- Divider -->
+    <div class="booking-divider"></div>
+
+            <!-- Booking Content -->
+        <div class="booking-content">
+
+          <!-- Left Column -->
+          <div class="booking-left">
+
+            <input type="hidden" id="tourIdInput" value="{{ tour.id }}">
+
+            <div class="section">
+              <label class="section-label">Select Date & Time</label>
+              <div class="datetime">
+                <div class="calendar-wrapper" style="position: relative;">
+                  <input id="hiddenDate" type="text" style="opacity:0;position:absolute;pointer-events:none;height:0;width:0;">
+                  <button id="calendarBtn" class="calendar-btn" type="button">
+                      <img src="{% static 'core/images/calendar-icon.svg' %}" alt="Calendar Icon" class="calendar-icon">
+                      <span id="selectedDate">Select Date</span>
+                  </button>
+              </div>
+              
+              
+
+              <div class="time-section">
+                <button id="timeBtn" class="time-btn" disabled>
+                  ⏰ <span id="selectedTime">Select Time</span> 
+                </button>
+              </div>
+              
+              <input type="hidden" id="preferredStartTime" value="{{ start_time|time:'h:i A' }}">
+              
+              </div>
+            </div>
+
+
+              <div id="availabilityMessage" style="margin-top: 10px;"></div>
+
+            
+            
+            <div class="section travellers-section">
+              <label class="section-label">Travellers</label>
+
+              <div class="traveller-box">
+                <span class="traveller-type">
+                  {% if tour_type == "private" %}
+                    Group
+                  {% else %}
+                    Adult
+                  {% endif %}
+                </span>
+
+                <span class="traveller-price" id="adultPriceText" data-price="{{ adult_price|floatformat:2 }}" data-min-travelers="{{ min_travelers }}">
+                  RM {{ adult_price }}
+                </span>
+
+                <input type="hidden" id="tourType" value="{{ tour_type }}">
+
+                <input type="hidden" id="tourSlugInput" value="{{ tour.slug }}">
+
+
+                <div class="counter">
+                  <button class="counter-btn decrease" data-type="adult">-</button>
+                  <span id="adultCount">{{ min_travelers }}</span>
+                  <button class="counter-btn increase" data-type="adult">+</button>
+                </div>
+              </div>
+
+              <small class="traveller-note">
+                {% if tour_type == "private" %}
+                  Minimum booking required: {{ tour.min_travelers }} persons per group.
+                {% else %}
+                  Minimum booking required: {{ tour.min_travelers }} person{{ tour.min_travelers|pluralize }} per group.
+                {% endif %}
+              </small>
+
+              {% if tour_type != "private" %}
+              <div class="traveller-box">
+                <span class="traveller-type">Child</span>
+                <span class="traveller-price" id="childPriceText" data-price="{{ child_price }}">RM {{ child_price }}</span>
+
+                <div class="counter">
+                  <button class="counter-btn decrease" data-type="child">-</button>
+                  <span id="childCount">0</span>
+                  <button class="counter-btn increase" data-type="child">+</button>
+                </div>
+              </div>
+
+              <small class="traveller-note">Age between 3 to 7 years.</small>
+              {% endif %}
+              
+            </div>
+
+          </div> <!-- booking-left -->
+
+          <!-- Right Column -->
+          <div class="booking-right">
+
+            <label class="section-label">Traveler Information :</label>
+
+            <div class="input-group">
+              <input type="text" id="fullName" placeholder="Full Name" required>
+              <small class="error-message" id="fullNameError"></small>
+            </div>
+
+            <div class="input-group">
+              <input type="email" id="email" placeholder="Email" required>
+              <small class="error-message" id="emailError"></small>
+            </div>
+
+            <div class="input-group">
+              <input type="text" id="phoneNumber" placeholder="Phone Number" required>
+              <small class="error-message" id="phoneError"></small>
+            </div>
+
+            <input type="hidden" id="is_transfer" value="false">
+            <input type="hidden" id="is_private_tour" value="{% if tour_type == 'private' %}true{% else %}false{% endif %}">
+
+            <input type="hidden" id="tourSlugInput" value="{{ tour.slug }}"> <!-- ✅ THIS IS IMPORTANT -->
+
+
+            {% if True %}
+            <div style="position: relative;">
+              <input type="text" id="hotelSearch" placeholder="Hotel & Address" required>
+              <div id="hotelSuggestions" class="suggestions-dropdown"></div>
+              <input type="hidden" name="pickup_map_url" id="pickupMapUrl">
+
+              <div id="hotelMapContainer"></div>
+
+              <small class="error-message" id="hotelError"></small>
+            </div>
+
+            <div class="booking-note">
+              <small class="note">
+                Pickup is only for hotels and guesthouses in Tanah Rata,<br>
+                Golden Hills, Brinchang, and Nova.
+              </small>
+            </div>
+            {% endif %}
+
+          </div> <!-- booking-right -->
+
+        </div> <!-- booking-content -->
+
+        <!-- 🟰 Total and Proceed Button Separate (Move down nicely) -->
+        <div class="booking-total-section">
+          <div class="total-wrapper">
+            <strong class="total-label">Total Price : RM <span id="totalPrice">{{ tour.discounted_price }}</span></strong>
+            <button id="payButton" class="payment-btn">Proceed To Payment</button>
+          </div>
+        </div>
+
+        
+
+   </div>
+</section>
+   
+<!-- 🛡 Privacy and Policy Outside Booking Box -->
+<div class="privacy-wrapper">
+  <a href="/privacy-policy" class="privacy-link">Privacy and Policy</a>
+</div>
+ 
+
+<!-- Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+<input type="hidden" id="minTravelersInput" value="{{ tour.min_travelers }}">
+
+<script src="{% static 'core/js/booking.js' %}"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  const stripe = Stripe("pk_test_51RCu9ARXfGYEOI0DFn5nqNrglVkMv7nKaXs5KbmbMqeyRjxzRjMFmNirveeO5HykLkPWPN2l4GNcjSTjGLQKTd4o006FhasZqT");  // your publishable key
+</script>
+
+<script>
+  const minTravelers = {{ tour.min_travelers }};
+</script>
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCth5rYzXAhrYyTrxZnIuzMPb9sMqSEd44&libraries=places&callback=initAutocomplete"
+  async
+  defer
+></script>
+<script src="{% static 'core/js/hotel_suggestions.js' %}"></script>
+
+<script src="{% static 'core/js/check_availability.js' %}"></script>
+
+<script>
+  console.log("Tour slug:", document.getElementById("tourSlugInput")?.value);
+  console.log("Tour type:", document.getElementById("tourTypeInput")?.value);
+  console.log("Is transfer:", document.getElementById("is_transfer")?.value);
+</script>
+  
+
+
+{% include 'core/footer.html' %}
+</body>
+</html>

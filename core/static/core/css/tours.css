@@ -1,0 +1,503 @@
+
+  /* Tours Banner */
+.tours-banner {
+    width: 100%;
+    max-width: 1728px;
+    margin: 50px auto 0 auto;
+    padding-left: 5vw;
+    height: 476px;
+    
+    border-radius: 20px;
+    overflow: hidden;
+    background-image: url('/static/core/images/tours.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    
+  }
+  
+  .tours-banner-content {
+    color: white;
+    padding: 0 5vw;
+    max-width: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+.tours-banner-content h1 {
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1.1;
+  letter-spacing: -0.04em;
+  color: #ffffff;
+  margin: 0;
+  word-break: break-word;
+  white-space: normal; /* ✅ Allows wrapping */
+}
+  
+.tours-banner-content p {
+  font-size: 24px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  margin-top: 16px;
+  color: #ffffff;
+  max-width: 900px;
+}
+  
+  .featured-tours-section {
+    padding: 80px 5vw;  /* Use 5vw like the navbar */
+    margin: 0 auto;
+    max-width: 1440px;
+    margin-top: 40px;
+  }
+  
+  .featured-tours-header {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    padding-left: 0; /* Remove any unnecessary offset */
+  }
+  
+  
+  .featured-tours-header h2 {
+    font-family: 'Gilroy-Regular', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin: 0;
+    white-space: nowrap;
+    min-width: 200px;
+  }
+  
+  .featured-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+    margin-right: 0;
+  }
+  
+  
+  .featured-subtext {
+    font-family: 'Gilroy-Light', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: #555;
+    max-width: 500px;
+    margin-top: -50px;
+    margin-bottom: 40px;
+    text-align: right;
+    margin-left: auto;
+  }
+  
+  .tour-card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(303px, 1fr));
+    gap: 40px;
+    justify-content: center; /* center grid items horizontally */
+    padding: 0 60px;
+    max-width: 1440px;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+  
+  
+  
+
+
+  
+  .tour-card {
+    width: 100%;
+    max-width: 303px;
+    height: 414px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures button stays at bottom */
+    
+  }
+  
+  .tour-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .tour-card-content {
+    padding: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between; /* spread content and push button to bottom */
+  }
+  
+  .tour-card-content h3 {
+    font-family: 'Gilroy-Medium', sans-serif;
+    font-size: 16px;
+    margin: 0 0 4px;
+  }
+  
+  .tour-sub {
+    font-family: 'Gilroy-Light', sans-serif;
+    font-size: 12px;
+    color: #777;
+    margin-bottom: 8px;
+  }
+  
+  .tour-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #444;
+    margin-bottom: 8px;
+  }
+  
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+  
+  .original-price {
+    text-decoration: line-through;
+    font-size: 12px;
+    color: #999;
+  }
+  
+  .discounted-price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+  }
+  
+  .book-btn {
+    width: 121px;
+    height: 38px;
+    padding: 4px 10px 10px 10px; /* top, right, bottom, left */
+    align-self: flex-end; /* moves button to bottom-right */
+    margin-top: -40px; 
+     
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Gilroy-SemiBold', sans-serif;
+    color: #0A4F34;
+    background-color: #ffffff;
+    border: 1px solid #0A4F34;
+    border-radius: 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    gap: 10px; /* for icon spacing if added later */
+  }
+  
+  .book-btn:hover {
+    background-color: #0A4F34;
+    color: #ffffff;
+  }
+  
+  
+  .book-btn:hover {
+    background-color: #0A4F34;
+    color: #ffffff;
+  }
+  
+  /* === Private Tours Section === */
+  .private-tours-section {
+    padding: 80px 5vw;
+    margin: 0 auto;
+    max-width: 1440px;
+    margin-top: 40px;
+  }
+  
+  .private-tours-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .private-tours-header h2 {
+    font-family: 'Gilroy-Regular', sans-serif;
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin: 0;
+    white-space: nowrap;
+  }
+  
+  .private-line {
+    flex-grow: 1;
+    height: 1px;
+    background-color: #ccc;
+  }
+  
+  .private-subtext {
+    font-family: 'Gilroy-Light', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    color: #555;
+    max-width: 500px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    text-align: right;
+    margin-left: auto;
+  }
+  
+  /* Reuse tour-card-container, tour-card and button styles from above */
+  
+  .tour-badge {
+    display: inline-block;
+    background-color: rgba(12, 113, 87, 0.1); /* #0C71571A */
+    color: #0C7157;
+    font-family: 'Gilroy-SemiBold', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    border-radius: 4px;
+    padding: 2px 10px;
+    width: fit-content;
+    margin-bottom: 8px;
+  }
+  
+  
+  /* === WRAPPER CONTAINER FOR CONSISTENT WIDTH === */
+.tours-container {
+  max-width: 1728px;
+  margin: 0 auto;
+  padding: 0 60px;
+  box-sizing: border-box;
+}
+
+
+
+
+/* === TOUR CARD STYLING === */
+.tour-card {
+  width: 303px;
+  height: 414px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.tour-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.tour-card-content {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+/* === INSIDE CARD TEXT === */
+.tour-card-content h3 {
+  font-size: 16px;
+  font-family: 'Gilroy-Medium';
+  margin: 0 0 4px;
+}
+
+.tour-sub {
+  font-size: 12px;
+  font-family: 'Gilroy-Light';
+  color: #777;
+  margin-bottom: 8px;
+}
+
+.tour-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #444;
+  margin-bottom: 8px;
+}
+
+.price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.original-price {
+  text-decoration: line-through;
+  font-size: 12px;
+  color: #999;
+}
+
+.discounted-price {
+  font-size: 16px;
+  font-weight: 600;
+  color: #000;
+}
+
+/* === BOOK BUTTON === */
+.book-btn {
+  align-self: flex-end;
+  width: 121px;
+  height: 38px;
+  padding: 4px 10px;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Gilroy-SemiBold';
+  color: #0A4F34;
+  background: white;
+  border: 1px solid #0A4F34;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.book-btn:hover {
+  background-color: #0A4F34;
+  color: white;
+}
+
+/* === RESPONSIVE LAPTOP SCALING === */
+@media (max-width: 1440px) {
+  .tours-container {
+    padding: 0 40px;
+  }
+
+  .tour-card-container {
+    gap: 30px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .tour-card {
+    width: 280px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .tour-card {
+    width: 45%;
+    max-width: 303px;
+  }
+}
+
+@media (max-width: 768px) {
+  .tour-card {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .tour-card-container {
+    gap: 20px;
+  }
+
+  .featured-tours-section,
+  .private-tours-section {
+    padding: 60px 20px;
+  }
+}
+
+@media (max-width: 1440px) {
+  .tour-card-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 1024px) {
+  .tour-card-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .tour-card-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .tours-banner-content h1 {
+    font-size: 32px;
+    text-align: center;
+  }
+
+  .tours-banner-content p {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .tours-banner {
+    justify-content: center;
+    text-align: center;
+  }
+}
+
+@media (max-width: 1024px) {
+  .tour-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 20px;
+  }
+
+  .tour-price-section {
+    display: flex;
+    flex-direction: column; /* 👈 Stack vertically */
+    align-items: flex-start;
+    gap: 4px;
+    margin-top: 10px;
+  }
+
+  .discounted-price {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0A4F34;
+    white-space: nowrap;
+  }
+
+  .original-price {
+    font-size: 14px;
+    color: #999;
+    text-decoration: line-through;
+    white-space: nowrap;
+  }
+
+  .tour-card .book-btn {
+    margin-top: 10px;
+  }
+
+  .tour-card {
+    padding: 20px;
+    width: 290px;
+    box-sizing: border-box;
+  }
+
+  
+
+  .rating {
+    font-size: 16px;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+  }
+}

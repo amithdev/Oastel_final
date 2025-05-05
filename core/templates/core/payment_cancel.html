@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Cancelled</title>
+  <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+</head>
+<body>
+  <div class="booking-wrapper">
+    <div class="booking-box">
+      <h2>❌ Payment Cancelled</h2>
+      <p>Your payment was not completed. You can try again.</p>
+      <a href="{% url 'confirm_adventure' %}" class="payment-btn">Try Again</a>
+    </div>
+  </div>
+</body>
+</html>

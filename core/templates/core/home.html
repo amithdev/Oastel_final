@@ -1,0 +1,383 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oastel - Explore Malaysia</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Alike&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+          <a class="navbar-brand" href="#" style="color: #004d2f;">Oastel</a>
+
+            
+        </div>
+    </nav>
+
+    <!-- Divider -->
+    <div class="navbar-divider"></div>
+
+    <!-- Banner Section -->
+    <section class="banner">
+        <div class="banner-text">
+            <h1>Stay<br>Explore<br>Belong</h1>
+            <p>
+                Experience <span class="highlight">comfort</span> and 
+                <span class="highlight">explore</span> with <span class="highlight">thrill</span>, 
+                and <span class="highlight">connect</span> with like-minded travelers!
+            </p>
+        </div>
+        <div class="banner-img">
+            <img class="banner-slide active" src="{% static 'core/images/b1.jpeg' %}" alt="Banner Image">
+            <img class="banner-slide" src="{% static 'core/images/banner2.jpeg' %}" alt="Banner Image">
+            <img class="banner-slide" src="{% static 'core/images/banner3.jpeg' %}" alt="Banner Image">
+            <img class="banner-slide" src="{% static 'core/images/banner4.jpeg' %}" alt="Banner Image">
+        </div>
+    </section>
+
+    <section class="booking-section">
+      <div class="booking-options">
+    
+        <!-- Book Stay -->
+        <div class="booking-card" onclick="window.location.href='#'">
+          <div class="booking-card-inner">
+            <img src="{% static 'core/images/bed.png' %}" alt="Book Stay Icon">
+            <h3>Book Stay</h3>
+          </div>
+        </div>
+    
+        <!-- Book Tours -->
+        <div class="booking-card" onclick="window.location.href='{% url 'tours' %}'">
+          <div class="booking-card-inner">
+            <img src="{% static 'core/images/trips.png' %}" alt="Book Tours Icon">
+            <h3>Book Tours</h3>
+          </div>
+        </div>
+    
+        <!-- Book Transfer -->
+        <div class="booking-card" onclick="window.location.href='{% url 'book_transfers' %}'">
+          <div class="booking-card-inner">
+            <img src="{% static 'core/images/transfer.png' %}" alt="Book Transfer Icon">
+            <h3>Book Transfer</h3>
+          </div>
+        </div>
+    
+      </div>
+    </section>
+    
+
+    <!-- Exclusive Perks Section -->
+    <section class="perks-section">
+        <div class="perks-header">
+            <div class="perks-title-line">
+                <h2>Exclusive Perks Around Oastel</h2>
+                <div class="perks-horizontal-line"></div>
+            </div>
+            <div class="perks-subtitle">
+                <p>
+                    Unlock special deals & discounts at nearby cafes, local stalls, and shopping hotspots – just for Oastel guests! Stay, explore, and save more.
+                </p>
+            </div>
+        </div>
+
+        <!-- Perk Cards -->
+        <div class="perk-cards">
+            {% for perk in perks %}
+                <div class="perk-card">
+                    <img src="{{ perk.image.url }}" alt="{{ perk.title }}">
+                    <p class="perk-text">{{ perk.title }}</p>
+                    <h3 class="perk-price">{{ perk.price }}</h3>
+                    {% if perk.subtext %}
+                        <p class="perk-subtext">{{ perk.subtext }}</p>
+                    {% endif %}
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Link to Blogs -->
+        <div class="perks-link">
+          <a href="{% url 'blogs' %}">
+            Discover Stories & Hidden Gems Around Oastel – <span class="no-underline">Blogs</span>
+          </a>
+          
+        </div>
+    </section>
+
+    <!-- New FAQ Section -->
+<section class="faq-section-v2">
+    <h4 class="faq-heading-title">Frequently Asked Questions</h4>
+  
+    <div class="faq-layout">
+      <!-- Left Title -->
+      <div class="faq-intro">
+        <h2>
+          Need Help ?<br>
+          We've Got<br>
+          You Covered !
+        </h2>
+      </div>
+  
+      <!-- Right FAQs -->
+      <div class="faq-list">
+        <div class="faq-item-v2">
+          <button class="faq-question-v2" onclick="toggleFaq(this)">Do you offer Mossy Forest tours?</button>
+          <div class="faq-answer-v2">
+            <p>Yes! Oastel offers Mossy Forest tours. You can book it from our Trips section.</p>
+          </div>
+        </div>
+  
+        <div class="faq-item-v2">
+          <button class="faq-question-v2" onclick="toggleFaq(this)">What payment methods are accepted?</button>
+          <div class="faq-answer-v2">
+            <p>We accept credit/debit cards, Apple Pay, Alipay, and more through Stripe.</p>
+          </div>
+        </div>
+
+        
+        <div class="faq-item-v2">
+            <button class="faq-question-v2" onclick="toggleFaq(this)">What is your cancellation policy?</button>
+            <div class="faq-answer-v2">
+              <p>All bookings at Oastel are non-refundable, non-cancellable, and cannot be modified. We do not offer free cancellations. Please ensure your travel plans are confirmed before making a reservation.</p>
+            </div>
+        </div>
+
+
+
+
+        <div class="faq-item-v2">
+            <button class="faq-question-v2" onclick="toggleFaq(this)">How far is BOH Tea Centre (Sungei Palas Garden) from Oastel-Tanah Rata?</button>
+            <div class="faq-answer-v2">
+              <p>BOH Tea Centre is about 12 km from Oastel-Tanah Rata, and the drive takes 25–30 minutes.</p>
+            </div>
+        </div>
+
+        <div class="faq-item-v2">
+            <button class="faq-question-v2" onclick="toggleFaq(this)">How do I get to Oastel from the bus terminal?</button>
+            <div class="faq-answer-v2">
+              <p>Oastel is within walking distance from the Tanah Rata Bus Terminal.</p>
+            </div>
+        </div>
+
+        <div class="faq-item-v2">
+            <button class="faq-question-v2" onclick="toggleFaq(this)">Does Oastel accept volunteers?</button>
+            <div class="faq-answer-v2">
+              <p>Yes! Oastel welcomes volunteers to help with reception and social events. The minimum stay is two weeks.</p>
+            </div>
+        </div>
+        
+
+        <div class="faq-item-v2">
+            <button class="faq-question-v2" onclick="toggleFaq(this)">What is the concept of Oastel Co-Living?</button>
+            <div class="faq-answer-v2">
+              <p>Our concept is “Shared Space, Shared Stories”—a place where travelers connect, share experiences, and explore together.</p>
+            </div>
+        </div>
+        
+  
+        
+  </section>
+  
+<!-- Traveler Testimonials Section -->
+<section class="testimonials-section">
+    <div class="testimonials-header">
+      <h2>What Our Travelers Say</h2>
+      <p>"Real experiences. Genuine stories. See what our guests love about Oastel!"</p>
+    </div>
+  
+    <div class="testimonial-cards">
+      <!-- Testimonial 1 -->
+      <div class="testimonial-card">
+        <p class="quote-mark">&#8220;</p>
+        <p class="testimonial-text">
+          A3A was very clean & better equipped than most other places we have stayed at in Southeast Asia. The Host was very nice and accommodating as well. We ended up extending our stay for 2 more nights because we enjoyed the accommodation and the Cameron Highlands a lot!
+        </p>
+        <div class="rating">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            <span class="rating-score">4.9</span>
+          </div>
+          
+        <div class="reviewer">
+          <img src="{% static 'core/images/hanna.jpg' %}" alt="Hanna" class="reviewer-img">
+          <div class="reviewer-info">
+            <span class="name">Hanna</span><br>
+            <span class="country">
+                Germany
+                <img src="{% static 'core/images/de.png' %}" alt="Germany" class="flag-icon">
+                
+            </span>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Testimonial 2 -->
+      <div class="testimonial-card">
+        <p class="quote-mark">&#8220;</p>
+        <p class="testimonial-text">
+          Really nice to have co-living and meet other travellers. Modern and comfortable. There is free tea available in the kitchen. Board games also for when it rains.Very welcoming and helpful staff.
+        </p>
+        <div class="rating">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-regular fa-star"></i>
+            </div>
+            <span class="rating-score">4.0</span>
+        </div>
+          
+        <div class="reviewer">
+          <img src="{% static 'core/images/denise.jpg' %}" alt="Denise" class="reviewer-img">
+          <div class="reviewer-info">
+            <span class="name">Denise</span><br>
+            <span class="country">
+                Germany
+                <img src="{% static 'core/images/de.png' %}" alt="Germany" class="flag-icon">
+                
+            </span>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Testimonial 3 -->
+      <div class="testimonial-card">
+        <p class="quote-mark">&#8220;</p>
+        <p class="testimonial-text">
+          My stay at the co-living space was absolutely fantastic! I was traveling alone and really appreciated the concept - it offers a private retreat while still fostering a sense of community. The room and the entire accommodation were very clean and conveniently located. I would gladly come back anytime.
+        </p>
+        <div class="rating">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+            </div>
+            <span class="rating-score">5.0</span>
+        </div>
+          
+        <div class="reviewer">
+          <img src="{% static 'core/images/jonas.jpg' %}" alt="Jonas" class="reviewer-img">
+          <div class="reviewer-info">
+            <span class="name">Jonas</span><br>
+            <span class="country">
+                Germany
+                <img src="{% static 'core/images/de.png' %}" alt="Germany" class="flag-icon">
+                
+            </span>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Testimonial 4 -->
+      <div class="testimonial-card">
+        <p class="quote-mark">&#8220;</p>
+        <p class="testimonial-text">
+          A3A was very clean & better equipped than most other places we have stayed at in Southeast Asia. The Host was very nice and accommodating as well. We ended up extending our stay for 2 more nights because we enjoyed the accommodation and the Cameron Highlands a lot!
+        </p>
+        <div class="rating">
+            <div class="stars">
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star"></i>
+              <i class="fa-solid fa-star-half-stroke"></i>
+            </div>
+            <span class="rating-score">4.2</span>
+        </div>
+          
+        <div class="reviewer">
+          <img src="{% static 'core/images/hanna.jpg' %}" alt="Hanna" class="reviewer-img">
+          <div class="reviewer-info">
+            <span class="name">Hanna</span><br>
+            <span class="country">
+                Germany
+                <img src="{% static 'core/images/de.png' %}" alt="Germany" class="flag-icon">
+                
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Oastel & Booking Partners Section -->
+<section class="about-oastel-section">
+    <div class="about-oastel-content">
+      <h2 class="about-title">About <strong>Oastel</strong> – More Than Just a Stay</h2>
+      <p class="about-description">
+        At Oastel, we redefine the way travelers experience Malaysia! More than just a hostel, we are a community-driven travel hub where backpackers, adventurers, and explorers come together.
+        From cozy & affordable stays to thrilling Land Rover expeditions and seamless travel solutions, we make every journey unforgettable.
+        Whether you're here to relax, explore, or connect, Oastel is your perfect travel companion.
+      </p>
+    </div>
+  
+    <div class="partners-section">
+      <h3 class="partners-title">Our Booking Partners</h3>
+      <div class="partner-logos">
+        <img src="{% static 'core/images/how.png' %}" alt="Hostelworld">
+        <img src="{% static 'core/images/boo.png' %}" alt="Booking.com">
+        <img src="{% static 'core/images/tripa.png' %}" alt="TripAdvisor">
+      </div>
+    </div>
+</section>
+  
+<!-- Footer Section -->
+<footer class="site-footer">
+  <div class="footer-content">
+    <div class="footer-top">
+      <p class="secure-text">Guaranteed Safe & Secure Checkout.</p>
+      <img src="{% static 'core/images/stripe.png' %}" alt="Stripe Logo" class="stripe-badge">
+    </div>
+
+    <div class="payment-logos">
+      <img src="{% static 'core/images/visa.png' %}" alt="Visa">
+      <img src="{% static 'core/images/mastercard.png' %}" alt="MasterCard">
+      <img src="{% static 'core/images/amex.png' %}" alt="Amex">
+      <img src="{% static 'core/images/discover.png' %}" alt="Discover">
+      <img src="{% static 'core/images/dinersclub.png' %}" alt="Diners Club">
+      <img src="{% static 'core/images/unionpay.png' %}" alt="UnionPay">
+      <img src="{% static 'core/images/jcb.png' %}" alt="JCB">
+    </div>
+
+    <p class="copyright">
+      © 2020–2024 by OASTEL SDN. BHD. 202401034459 (1580306 – V)
+    </p>
+  </div>
+</footer>
+
+  
+  
+
+
+    <!-- Scripts -->
+<script src="{% static 'core/js/banner.js' %}"></script>
+
+
+  
+
+<script>
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      answer.classList.toggle('show');
+      btn.classList.toggle('active');
+    }
+</script>
+    
+</body>
+</html>

@@ -1,0 +1,107 @@
+{% load static %}
+{% include 'core/navbar.html' %}
+
+<link rel="stylesheet" href="{% static 'core/css/transfers.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/booking.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="transfer-banner">
+  <img src="{% static 'core/images/transfer-banner.jpg' %}" alt="Transfer Banner" class="transfer-banner-image">
+
+  <div class="banner-overlay">
+    <h1>Book Malaysia Transfers Online: Daily Tickets at Your Fingertips</h1>
+    <p>Convenient Rest Stops with Restrooms & Restaurants for a Smooth Journey</p>
+
+    <form id="searchForm" method="get" action="{% url 'confirm_transfer' %}" class="search-card">
+      <!-- FROM -->
+      <div class="search-input" id="fromInputWrapper">
+        <i class="fas fa-train"></i>
+        <input type="text" placeholder="From" id="fromInput" readonly>
+        <div class="dropdown-menu" id="fromDropdown">
+          {% for city in cities %}
+            <div class="dropdown-item">{{ city.name }}</div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- TO -->
+      <div class="search-input" id="toInputWrapper">
+        <i class="fas fa-plane"></i>
+        <input type="text" placeholder="To" id="toInput" readonly>
+        <div class="dropdown-menu" id="toDropdown">
+          {% for city in cities %}
+            <div class="dropdown-item">{{ city.name }}</div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- CALENDAR -->
+      <div class="calendar-wrapper">
+        <input type="text" id="customDateInput" placeholder="Select Date" readonly>
+        <div id="customCalendar" class="custom-calendar"></div>
+      </div>
+
+      <!-- Hidden Inputs -->
+      <input type="hidden" name="from" id="hiddenFrom">
+      <input type="hidden" name="to" id="hiddenTo">
+      <input type="hidden" name="date" id="hiddenDate">
+
+      <!-- Submit -->
+      <button type="submit" class="search-btn">Search</button>
+    </form>
+  </div>
+</div>
+  
+    
+      
+
+<section class="transfers-section">
+  <div class="transfers-header-line">
+    <h2>Featured Transfers</h2>
+    <div class="header-line"></div>
+  </div>
+    <p class="transfers-subtitle-right">
+       Seamless, Comfortable & Affordable Rides to Your Destination
+    </p>
+  </div>
+  
+  
+<div class="table-responsive">
+  <table class="transfer-table">
+    <thead>
+      <tr>
+        <th>From</th>
+        <th>To</th>
+        <th>Mode</th>
+        <th>Duration</th>
+        <th>Price</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for transfer in transfers %}
+      <tr>
+        <td>{{ transfer.from_city }}</td>
+        <td>{{ transfer.to_city }}</td>
+        <td>{{ transfer.journey_type }}</td>
+        <td>{{ transfer.duration }}</td>
+        <td>
+          {% if transfer.original_price %}
+            <del>RM {{ transfer.original_price }}</del>
+          {% endif %}
+          <strong>RM {{ transfer.price }}</strong>
+        </td>
+        <td>
+          <a href="{% url 'confirm_transfer' %}?from={{ transfer.from_city|urlencode }}&to={{ transfer.to_city|urlencode }}&date=22+Apr+2025" class="book-btn">Book</a>
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+    
+  </table>
+</div>
+</section>
+<script src="{% static 'core/js/transfer.js' %}"></script>
+{% include 'core/footer.html' %}
+
+

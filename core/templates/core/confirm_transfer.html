@@ -1,0 +1,224 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Confirm Your Transfer</title>
+  <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'core/css/booking.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+{% include 'core/navbar.html' %}
+
+<section class="booking-wrapper">
+  <div class="booking-box">
+    <!-- Header -->
+    <div class="booking-header">
+      <h2>Confirm Your Transfer</h2>
+      <p class="selected-tour">
+        Transfer Selected: <strong>{{ from_city }} to {{ to_city }}</strong>
+      </p>
+    </div>
+
+    <!-- Divider -->
+    <div class="booking-divider"></div>
+
+    <!-- Booking Content -->
+    <div class="booking-content">
+      
+      <!-- Left Column -->
+      <div class="booking-left">
+        <!-- Date & Time -->
+        <div class="section">
+          <label class="section-label">Select Date & Time</label>
+          <div class="datetime">
+            <div class="calendar-wrapper" style="position: relative;">
+              <button id="calendarBtn" class="calendar-btn">
+                <img src="{% static 'core/images/calendar-icon.svg' %}" alt="Calendar Icon" class="calendar-icon">
+                <span id="selectedDate">{{ date }}</span>
+              </button>
+              <div id="calendarDropdown" class="calendar-dropdown">
+                <input type="text" id="hiddenDate" name="date">
+
+              </div>
+            </div>
+
+            <div class="time-dropdown-wrapper">
+              <button id="timeBtn" class="time-btn">
+                ⏰ <span id="selectedTime">08:15 AM</span>
+              </button>
+              <div id="timeDropdown" class="time-dropdown">
+                <div class="time-option">08:15 AM</div>
+                <div class="time-option">09:00 AM</div>
+                <div class="time-option">10:30 AM</div>
+                <div class="time-option">12:00 PM</div>
+                <div class="time-option">01:45 PM</div>
+                <div class="time-option">03:15 PM</div>
+              </div>
+            </div>
+          </div>
+          <div id="availabilityMessage" style="margin-top: 10px;"></div>
+        </div>
+
+        <!-- Travellers -->
+        <div class="section">
+          <label class="section-label">Travellers</label>
+
+          <div class="traveller-box">
+            <span class="traveller-type">Adult</span>
+            <span class="traveller-price" id="adultPriceText" data-price="{{ price }}">RM {{ price }}</span>
+
+            <div class="counter">
+              <button class="counter-btn decrease" data-type="adult">-</button>
+              <span id="adultCount">1</span>
+              <button class="counter-btn increase" data-type="adult">+</button>
+            </div>
+          </div>
+
+          <div class="traveller-box">
+            <span class="traveller-type">Child</span>
+            <span class="traveller-price" id="childPriceText" data-price="0">RM 0</span>
+
+            <div class="counter">
+              <button class="counter-btn decrease" data-type="child">-</button>
+              <span id="childCount">0</span>
+              <button class="counter-btn increase" data-type="child">+</button>
+            </div>
+          </div>
+
+          <small class="traveller-note">Age between 3 to 7 years.</small>
+        
+   <!-- Transfer Details -->
+   <div class="section transfer-details">
+    <label class="section-label">Transfer Details :</label>
+    <ul class="details-list">
+      <li><strong>Journey Type</strong> : {{ transfer.journey_type }}</li>
+      <li><strong>Pickup Location</strong> : {{ transfer.pickup_location }}</li>
+      <li><strong>Drop-off Location</strong> : {{ transfer.dropoff_location }}</li>
+      <li><strong>Duration</strong> : {{ transfer.duration }}</li>
+    </ul>
+  </div>
+  
+  <!-- Important Info Box -->
+  <div class="important-info-box">
+    <p><strong>Important Information :</strong> {{ transfer.important_info }}</p>
+  </div>
+  
+    </div>
+        <!-- Total -->
+        <div class="section total">
+          <strong class="total-label">Total Price: <span id="totalPrice">{{ price }}</span> MYR</strong>
+          <button id="payButton" class="payment-btn">Proceed To Payment</button>
+        </div>
+      </div>
+
+      <!-- Right Column -->
+      <div class="booking-right">
+        <label class="section-label">Traveler Information :</label>
+
+        <div class="input-group">
+          <input type="text" id="fullName" placeholder="Full Name" required>
+          <small class="error-message" id="fullNameError"></small>
+        </div>
+
+        <div class="input-group">
+          <input type="email" id="email" placeholder="Email" required>
+          <small class="error-message" id="emailError"></small>
+        </div>
+
+        <div class="input-group">
+          <input type="text" id="phoneNumber" placeholder="Phone Number" required>
+          <small class="error-message" id="phoneError"></small>
+        </div>
+
+        <input type="hidden" id="transferId" value="{{ transfer.id }}">
+
+        <input type="hidden" id="is_transfer" value="true">
+
+        <input type="hidden" id="is_transfer" value="true">  <!-- or false -->
+        <input type="hidden" id="transferId" value="{{ transfer.id }}">
+        <input type="hidden" id="tourIdInput" value="{{ tour.id }}">  <!-- for tour pages -->
+        <input type="hidden" id="is_private_tour" value="false">  <!-- or true -->
+
+
+        
+        {% if transfer.pickup_type == 'hotel' %}
+        <div style="position: relative;">
+          <input type="text" id="hotelSearch" placeholder="Hotel & Address" required>
+          <div id="hotelSuggestions" class="suggestions-dropdown"></div>
+          <input type="hidden" name="pickup_map_url" id="pickupMapUrl">
+        
+          <!-- 👇 Add this map preview container -->
+          <div id="hotelMapContainer"></div>
+        
+          <small class="error-message" id="hotelError"></small>
+        </div>
+       
+
+        
+
+
+        
+
+
+        <div class="booking-note">
+          <small class="note">
+            Pickup is only for hotels and guesthouses in Tanah Rata,<br>
+            Golden Hills, Brinchang, and Nova.
+          </small>
+        </div>
+      {% else %} <!-- Default green pickup location -->
+      <div class="default-pickup-box">
+        <p><strong>Pickup Location :</strong> {{ transfer.pickup_location }}</p>
+      </div>
+      <div class="default-pickup-note">
+        *Pickup location is default for some certain locations.
+      </div>
+    
+      
+      {% endif %}
+      
+
+        
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Privacy Link -->
+  <a href="/privacy-policy" class="privacy-link">Privacy and Policy</a>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="{% static 'core/js/booking.js' %}"></script>
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+  const stripe = Stripe("pk_test_51RCu9ARXfGYEOI0DFn5nqNrglVkMv7nKaXs5KbmbMqeyRjxzRjMFmNirveeO5HykLkPWPN2l4GNcjSTjGLQKTd4o006FhasZqT");
+</script>
+
+<script src="{% static 'core/js/check_transfer_availability.js' %}"></script>
+
+
+
+<script
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCth5rYzXAhrYyTrxZnIuzMPb9sMqSEd44&libraries=places&callback=initAutocomplete"
+  async
+  defer
+></script>
+
+<script src="{% static 'core/js/hotel_suggestions.js' %}"></script>
+<script src="{% static 'core/js/check_availability.js' %}"></script>
+
+<script>
+  console.log("Tour slug:", document.getElementById("tourSlugInput")?.value);
+  console.log("Tour type:", document.getElementById("tourTypeInput")?.value);
+  console.log("Is transfer:", document.getElementById("is_transfer")?.value);
+</script>
+  
+{% include 'core/footer.html' %}
+</body>
+</html>

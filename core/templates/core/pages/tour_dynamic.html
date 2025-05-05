@@ -1,0 +1,95 @@
+{% load static %}
+
+
+
+{% include 'core/navbar.html' %}
+
+<link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+<link rel="stylesheet" href="{% static 'core/css/tour_detail.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<div class="tour-banner-wrapper">
+  <img src="{{ tour.image.url }}" alt="Tour Image" class="tour-banner-image">
+</div>
+
+<section class="tour-detail-wrapper">
+  <div class="tour-header">
+    <h1>{{ tour.title }} <span class="co-tour">{{ tour.badge }}</span></h1>
+    <div class="tour-meta-row">
+      <div class="meta-flex">
+        <div class="tour-tags">
+          <span class="tag">{{ tour.subtitle }}</span>
+          <span class="tag">RM {{ tour.discounted_price }}</span>
+        </div>
+        <div class="rating-block">
+          <span class="stars">⭐⭐⭐⭐⭐</span>
+          <span class="score">{{ tour.rating }}</span>
+          <div class="reviews">{{ tour.rating_count }}+ reviews</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tour-body">
+    <div class="about-box">
+
+      {% if tour.about_this_tour %}
+        <h3>About this Tour :</h3>
+        <ul>
+            {{ tour.about_this_tour|safe }}
+        </ul>
+      {% endif %}
+
+      {% if tour.service_description %}
+      <h3 class="section-title">Service Description</h3>
+      <div class="subtext">{{ tour.service_description|safe }}</div>
+      {% endif %}
+
+      <ul class="info-list">
+
+        {% if tour.departure_time %}
+        <li><i class="fas fa-clock"></i> <strong>Departure Time:</strong> {{ tour.departure_time }}</li>
+        {% endif %}
+
+        {% if tour.highlights %}
+        <li><i class="fas fa-map-marked-alt"></i> <strong>Highlights:</strong> {{ tour.highlights|safe }}</li>
+        {% endif %}
+
+        {% if tour.locations %}
+        <li><i class="fas fa-map-pin"></i> <strong>Locations:</strong>
+        <div>{{ tour.locations|safe }}</div>
+        </li>
+        {% endif %}
+
+        {% if tour.essentials %}
+        <li><i class="fas fa-suitcase-rolling"></i> <strong>Essentials to Carry:</strong>
+        <div>{{ tour.essentials|safe }}</div>
+        </li>
+        {% endif %}
+
+
+        {% if tour.itinerary %}
+        <li><i class="fas fa-route"></i> <strong>Itinerary:</strong> {{ tour.itinerary|safe }}</li>
+        {% endif %}
+
+        {% if tour.notes %}
+        <li><i class="fas fa-sticky-note"></i> <strong>Note:</strong> {{ tour.notes|safe }}</li>
+        {% endif %}
+
+        {% if tour.terms_conditions %}
+        <li><i class="fas fa-info-circle"></i> <strong>Terms and Conditions:</strong> {{ tour.terms_conditions|safe }}</li>
+        {% endif %}
+      </ul>
+
+    </div>
+
+    <div class="price-box">
+      <p class="price-label">Price</p>
+      <p class="price-amount">RM {{ tour.discounted_price }}</p>
+      <a href="{% url 'confirm_tour' tour.slug %}" class="book-btn">Book Now</a>
+
+
+    </div>
+</section>
+
+{% include 'core/footer.html' %}

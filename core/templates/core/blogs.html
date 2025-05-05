@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Oastel Blogs & Local Offers</title>
+  <link rel="stylesheet" href="{% static 'core/css/blogs.css' %}">
+</head>
+<body>
+
+{% include 'core/navbar.html' %}
+
+<div class="blogs-banner">
+  <h1>Oastel Blogs & Exclusive Local Offers</h1>
+  <p>
+    Explore travel guides, adventure tales, and insider tips for making the most of your stay at Oastel. Plus, enjoy handpicked discounts and exclusive offers from the best restaurants, cafes, and shops nearby.
+  </p>
+</div>
+
+<!-- Exclusive Perks Section -->
+<section class="exclusive-perks">
+    <div class="perks-header">
+        <div class="perks-title-line">
+            <h2>Exclusive Perks Around Oastel</h2>
+            <div class="perks-horizontal-line"></div>
+        </div>
+        <div class="perks-subtitle">
+            <p>
+                Unlock special deals & discounts at nearby cafes, local stalls, and shopping hotspots – just for Oastel guests! Stay, explore, and save more.
+            </p>
+        </div>
+    </div>
+
+    <!-- Perk Cards -->
+    <div class="perk-cards">
+        {% for perk in perks %}
+            <div class="perk-card">
+                <img src="{{ perk.image.url }}" alt="{{ perk.title }}">
+                <p class="perk-text">{{ perk.title }}</p>
+                <h3 class="perk-price">{{ perk.price }}</h3>
+                {% if perk.subtext %}
+                    <p class="perk-subtext">{{ perk.subtext }}</p>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    
+</section>
+<section class="oastel-blogs">
+  <h2>“Oastel Chronicles: Stories, Adventures & Insider Tips”</h2>
+  <div class="blog-grid">
+    <div class="blog-card">
+      <img src="{% static 'core/images/blog1.jpg' %}" alt="Blog 1">
+      <p>Find out the most breathtaking locations just a short ride away.</p>
+    </div>
+    <div class="blog-card">
+      <img src="{% static 'core/images/blog2.jpg' %}" alt="Blog 2">
+      <p>Adventure Diaries: The Ultimate Land Rover Road Trip</p>
+    </div>
+    <div class="blog-card">
+      <img src="{% static 'core/images/blog3.jpg' %}" alt="Blog 3">
+      <p>Local Flavors: Best Eateries You Can’t Miss</p>
+    </div>
+    <div class="blog-card">
+      <img src="{% static 'core/images/blog4.jpg' %}" alt="Blog 4">
+      <p>Enjoy 20% OFF – Tea Break. Special Offer!</p>
+    </div>
+  </div>
+</section>
+
+{% include 'core/footer.html' %}
+
+</body>
+</html>

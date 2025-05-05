@@ -1,0 +1,120 @@
+
+
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Oastel Tours</title>
+    <link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/tours.css' %}">
+</head>
+
+<body>
+    {% include 'core/navbar.html' %}
+
+<div class="tours-container">   
+    
+
+<!-- Tours Banner -->
+<section class="tours-banner">
+    <div class="tours-banner-content">
+      <h1>Adventure Awaits – Book Your Tour Now!</h1>
+      <p>
+        "Discover Malaysia like never before — from thrilling Land Rover expeditions to serene island getaways.<br>
+        Your perfect adventure starts here!"
+      </p>
+    </div>
+</section>
+ 
+<!-- Featured Tours Section -->
+<section class="featured-tours-section">
+  <div class="featured-tours-header">
+    <h2>Featured Tours</h2>
+    <div class="featured-line"></div>
+  </div>
+  <p class="featured-subtext">Different types of tours (Land Rover Expeditions, Island Hopping, City Tours, etc.).</p>
+
+  <div class="tour-card-container">
+    {% for tour in tours %}
+      <div class="tour-card">
+        <img src="{{ tour.image.url }}" alt="{{ tour.title }}">
+        <div class="tour-card-content">
+          <h3>{{ tour.title }}</h3>
+          
+          {% if tour.badge %}
+            <div class="tour-badge">{{ tour.badge }}</div>
+
+          {% endif %}
+
+          {% if tour.subtitle %}
+          <p class="tour-sub">{{ tour.subtitle }}</p>
+          {% endif %}
+          <div class="tour-meta">
+            <span class="rating">⭐ {{ tour.rating }} ({{ tour.rating_count }})</span>
+            <span class="booked">{{ tour.formatted_bookings }}</span>
+          </div>
+          <div class="price-row">
+            <span class="original-price">RM {{ tour.original_price }}</span>
+            <span class="discounted-price">RM {{ tour.discounted_price }}</span>
+          </div>
+          <a href="{% url 'tour_detail_generic' tour.slug %}" class="book-btn">Book</a>
+
+
+
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<!-- Private Tours Section -->
+<section class="private-tours-section">
+  <div class="private-tours-header">
+    <h2>Private Tours</h2>
+    <div class="private-line"></div>
+  </div>
+  <p class="private-subtext">
+    Discover exclusive, tailor-made private tours designed for a more personal and flexible travel experience.
+  </p>
+  <div class="tour-card-container">
+    {% for tour in private_tours %}
+      <div class="tour-card">
+        <img src="{{ tour.image.url }}" alt="{{ tour.title }}">
+        <div class="tour-card-content">
+          <h3>{{ tour.title }}</h3>
+          
+          {% if tour.badge %}
+            <div class="tour-badge">{{ tour.badge }}</div>
+
+          {% endif %}
+
+          {% if tour.subtitle %}
+          <p class="tour-sub">{{ tour.subtitle }}</p>
+          {% endif %}
+          <div class="tour-meta">
+            <span class="rating">⭐ {{ tour.rating }} ({{ tour.rating_count }})</span>
+            <span class="booked">{{ tour.formatted_bookings }}</span>
+          </div>
+          <div class="price-row">
+            <span class="original-price">RM {{ tour.original_price }}</span>
+            <span class="discounted-price">RM {{ tour.discounted_price }}</span>
+          </div>
+          <a href="{% url 'tour_detail_generic' tour.slug %}" class="book-btn">Book</a>
+
+
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+</div>
+
+  
+{% include 'core/footer.html' %}
+
+</body>
+</html>

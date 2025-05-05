@@ -1,0 +1,1048 @@
+.transfer-banner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+  
+  .transfer-banner-image {
+    width: 1800px;
+    height: 635px;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.03); /* slight zoom effect */
+  }
+  
+  /* Overlay content centered on top of banner */
+  .banner-overlay {
+    position: absolute;
+    top: 20%; /* push the text block down on banner */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .banner-overlay h1 {
+    font-family: 'Gilroy-SemiBold', sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: -0.04em; /* -4% */
+    margin-bottom: 16px;
+    color: white;
+  }
+  
+  .banner-overlay p {
+    font-family: 'Gilroy-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: -0.02em; /* -2% */
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+  }
+  
+  .search-card {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    width: 1368px;
+    height: 146px;
+    margin: 40px auto 0 auto; /* pushes it down */
+    justify-content: space-between;
+    padding: 0;
+    position: absolute;
+    top: 130%; /* push it further down */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+  }
+  
+  .search-input {
+    display: flex;
+    align-items: center;              /* Vertically center icon and text */
+    justify-content: flex-start;
+    width: 355px;
+    height: 146px;
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+    padding-left: 24px;               /* Extra space from left */
+    padding-right: 20px;
+    gap: 20px;                        /* Space between icon and text */
+    font-family: 'Gilroy-Medium', sans-serif;
+    font-size: 24px;
+    letter-spacing: -2%;
+    border-radius: 0;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  .search-input input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    background: transparent;
+    color: black;
+    font-family: 'Gilroy-Medium', sans-serif;
+  }
+  
+
+  
+  
+  /* Hide native calendar icon but still allow JS to show it */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+  }
+  
+  .calendar-icon-native {
+    font-size: 22px;
+    color: #0C7157;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  
+  
+  .search-btn {
+    flex: 1; /* Takes up the remaining space */
+    height: 146px;
+    background-color: #0C7157;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Gilroy-SemiBold', sans-serif;
+    border: none;
+    cursor: pointer;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-btn:hover {
+    background-color: #095d45;
+  }
+  
+  
+  
+  
+  .transfers-section {
+    padding-left: 180px; /* Matches the navbar logo's left alignment */
+    padding-right: 180px; /* Keep it symmetrical */
+    padding-top: 60px;
+    background: #fff;
+  }
+  
+  .transfers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    padding: 0 180px; /* ✅ Match navbar’s left and right spacing */
+  }
+  
+  
+  .transfers-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    font-family: 'Gilroy-SemiBold', sans-serif;
+  }
+  
+  .transfers-header p {
+    font-size: 20px;
+    font-family: 'Gilroy-Regular', sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-align: right;
+    width: 400px;
+  }
+  
+  
+  
+  
+.transfer-table-wrapper {
+  margin: 0 140px; /* Same left/right margin as header */
+  border-radius: 12px;
+  background: #f8f8f8;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.transfer-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f8f8f8;
+  font-family: 'Gilroy-Regular', sans-serif;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+
+.transfer-table thead {
+  background-color: #EDEDED;
+  font-weight: 600;
+}
+
+.transfer-table th,
+.transfer-table td {
+  padding: 26px 20px; /* more vertical space */
+  text-align: center;
+  font-size: 17px;    /* slightly larger text */
+  vertical-align: middle;
+}
+
+.transfer-table tr:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+.transfer-table del {
+  color: #999;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.transfer-table strong {
+  color: #0C7157;
+}
+
+.book-btn {
+  background-color: #e9fff5;
+  color: #0C7157;
+  border: 1px solid #0C7157;
+  padding: 12px 22px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: 'Gilroy-SemiBold', sans-serif;
+  transition: 0.3s ease;
+}
+
+.book-btn:hover {
+  background-color: #0C7157;
+  color: white;
+}
+
+  
+  /* ========== Updated Date Selector Box ========== */
+
+  .calendar-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 355px;
+    height: 146px;
+    background: white;
+    border: 1px solid #ccc;
+    color: black;
+    padding-left: 24px;
+    padding-right: 20px;
+    font-family: 'Gilroy-Medium', sans-serif;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 0;
+    position: relative;
+    z-index: 10;
+  }
+  
+  
+  
+  .calendar-icon-native {
+    font-size: 24px;
+    color: #0C7157;
+    margin-top: -50px;
+    position: relative;
+  }
+  
+  
+  #customDateInput {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: black;
+  font-size: 24px;
+  font-family: 'Gilroy-Medium', sans-serif;
+  cursor: pointer;
+}
+
+  
+  
+  /* ========== Updated Calendar Dropdown ========== */
+  .custom-calendar {
+    display: none;
+    position: absolute;
+    top: 100%;
+    margin-top: 8px;
+    left: 0;
+    width: 320px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1000 !important;
+    padding: 10px 10px 20px;
+    font-family: 'Gilroy-Regular', sans-serif;
+  }
+  
+  /* Table style fix */
+  .custom-calendar table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  
+  .custom-calendar th,
+  .custom-calendar td {
+    padding: 6px;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .custom-calendar td:hover {
+    background-color: #0C7157;
+    color: #fff;
+  }
+  
+  .custom-calendar .disabled {
+    color: #ccc;
+    pointer-events: none;
+  }
+
+  /* Refined dropdown styling to match your design */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 6px;
+  width: 100%;
+  max-height: 260px; /* Adjust this if you want taller */
+  overflow-y: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  padding: 10px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background-color: #130f0f;
+  border-radius: 10px;
+}
+
+.dropdown-item {
+  padding: 14px 24px;
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 18px;
+  color: #2a2a2a;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.4s ease-in-out;
+  border: 2px solid red;
+}
+
+
+.transfers-header-line {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.transfers-header-line h2 {
+  font-size: 28px;
+  font-weight: 600;
+  font-family: 'Gilroy-SemiBold', sans-serif;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.header-line {
+  
+    width: 1250px; /* Try 150px–300px for variations */
+    height: 1px;
+    background-color: #e0e0e0;
+    margin-top: 12px; /* small gap from heading */
+  }
+  
+
+
+
+  .transfer-banner {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+  
+  .transfer-banner-image {
+    width: 1800px;
+    height: 635px;
+    border-radius: 10px;
+    object-fit: cover;
+    display: block;
+    transform: scale(1.03); /* slight zoom effect */
+  }
+  
+  /* Overlay content centered on top of banner */
+  .banner-overlay {
+    position: absolute;
+    top: 20%; /* push the text block down on banner */
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: white;
+    max-width: 1200px;
+    width: 100%;
+  }
+  
+  .banner-overlay h1 {
+    font-family: 'Gilroy-SemiBold', sans-serif;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 100%;
+    letter-spacing: -0.04em; /* -4% */
+    margin-bottom: 16px;
+    color: white;
+  }
+  
+  .banner-overlay p {
+    font-family: 'Gilroy-Regular', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 100%;
+    letter-spacing: -0.02em; /* -2% */
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+  }
+  
+  .search-card {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    width: 1368px;
+    height: 146px;
+    margin: 40px auto 0 auto; /* pushes it down */
+    justify-content: space-between;
+    padding: 0;
+    position: absolute;
+    top: 130%; /* push it further down */
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    z-index: 10;
+  }
+  
+  .search-input {
+    display: flex;
+    align-items: center;              /* Vertically center icon and text */
+    justify-content: flex-start;
+    width: 355px;
+    height: 146px;
+    background: white;
+    color: black;
+    border: 1px solid #ccc;
+    padding-left: 24px;               /* Extra space from left */
+    padding-right: 20px;
+    gap: 20px;                        /* Space between icon and text */
+    font-family: 'Gilroy-Medium', sans-serif;
+    font-size: 24px;
+    letter-spacing: -2%;
+    border-radius: 0;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  .search-input input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 24px;
+    background: transparent;
+    color: black;
+    font-family: 'Gilroy-Medium', sans-serif;
+  }
+  
+
+  
+  
+  /* Hide native calendar icon but still allow JS to show it */
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+  }
+  
+  .calendar-icon-native {
+    font-size: 22px;
+    color: #0C7157;
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+  
+  
+  .search-btn {
+    flex: 1; /* Takes up the remaining space */
+    height: 146px;
+    background-color: #0C7157;
+    color: white;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: 'Gilroy-SemiBold', sans-serif;
+    border: none;
+    cursor: pointer;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .search-btn:hover {
+    background-color: #095d45;
+  }
+  
+  
+  
+  
+  .transfers-section {
+    padding-left: 180px; /* Matches the navbar logo's left alignment */
+    padding-right: 180px; /* Keep it symmetrical */
+    padding-top: 60px;
+    background: #fff;
+  }
+  
+  .transfers-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+    margin-bottom: 30px;
+    padding: 0 180px; /* ✅ Match navbar’s left and right spacing */
+  }
+  
+  
+  .transfers-header h2 {
+    font-size: 28px;
+    font-weight: 600;
+    font-family: 'Gilroy-SemiBold', sans-serif;
+  }
+  
+  .transfers-header p {
+    font-size: 20px;
+    font-family: 'Gilroy-Regular', sans-serif;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    margin: 0;
+    text-align: right;
+    width: 400px;
+  }
+  
+  
+  
+  
+.transfer-table-wrapper {
+  margin: 0 140px; /* Same left/right margin as header */
+  border-radius: 12px;
+  background: #f8f8f8;
+  padding: 0;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.03);
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.transfer-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #f8f8f8;
+  font-family: 'Gilroy-Regular', sans-serif;
+  margin-bottom: 100px;
+  margin-top: 100px;
+}
+
+
+.transfer-table thead {
+  background-color: #EDEDED;
+  font-weight: 600;
+}
+
+.transfer-table th,
+.transfer-table td {
+  padding: 26px 20px; /* more vertical space */
+  text-align: center;
+  font-size: 17px;    /* slightly larger text */
+  vertical-align: middle;
+}
+
+.transfer-table tr:not(:last-child) {
+  border-bottom: 1px solid #ccc;
+}
+
+.transfer-table del {
+  color: #999;
+  font-size: 14px;
+  margin-right: 5px;
+}
+
+.transfer-table strong {
+  color: #0C7157;
+}
+
+.book-btn {
+  background-color: #e9fff5;
+  color: #0C7157;
+  border: 1px solid #0C7157;
+  padding: 12px 22px;
+  font-weight: 600;
+  border-radius: 6px;
+  text-decoration: none;
+  font-family: 'Gilroy-SemiBold', sans-serif;
+  transition: 0.3s ease;
+}
+
+.book-btn:hover {
+  background-color: #0C7157;
+  color: white;
+}
+
+  
+  /* ========== Updated Date Selector Box ========== */
+
+  .calendar-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 355px;
+    height: 146px;
+    background: white;
+    border: 1px solid #ccc;
+    color: black;
+    padding-left: 24px;
+    padding-right: 20px;
+    font-family: 'Gilroy-Medium', sans-serif;
+    font-size: 24px;
+    letter-spacing: -0.02em;
+    gap: 20px;
+    box-sizing: border-box;
+    border-radius: 0;
+    position: relative;
+    z-index: 10;
+  }
+  
+  
+  
+  .calendar-icon-native {
+    font-size: 24px;
+    color: #0C7157;
+    margin-top: -50px;
+    position: relative;
+  }
+  
+  
+  #customDateInput {
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: black;
+  font-size: 24px;
+  font-family: 'Gilroy-Medium', sans-serif;
+  cursor: pointer;
+}
+
+  
+  
+  /* ========== Updated Calendar Dropdown ========== */
+  .custom-calendar {
+    display: none;
+    position: absolute;
+    top: 100%;
+    margin-top: 8px;
+    left: 0;
+    width: 320px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+    z-index: 1000 !important;
+    padding: 10px 10px 20px;
+    font-family: 'Gilroy-Regular', sans-serif;
+  }
+  
+  /* Table style fix */
+  .custom-calendar table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  
+  .custom-calendar th,
+  .custom-calendar td {
+    padding: 6px;
+    width: 40px;
+    height: 40px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+  
+  .custom-calendar td:hover {
+    background-color: #0C7157;
+    color: #fff;
+  }
+  
+  .custom-calendar .disabled {
+    color: #ccc;
+    pointer-events: none;
+  }
+
+  /* Refined dropdown styling to match your design */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 6px;
+  width: 100%;
+  max-height: 260px; /* Adjust this if you want taller */
+  overflow-y: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.15);
+  z-index: 999;
+  padding: 10px 0;
+  scrollbar-width: thin;
+  scrollbar-color: #ccc transparent;
+}
+
+.dropdown-menu::-webkit-scrollbar {
+  width: 6px;
+}
+.dropdown-menu::-webkit-scrollbar-thumb {
+  background-color: #130f0f;
+  border-radius: 10px;
+}
+
+.dropdown-item {
+  padding: 14px 24px;
+  font-family: 'Gilroy-Regular', sans-serif;
+  font-size: 18px;
+  color: #2a2a2a;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(6px); }
+  100% { transform: translateX(0); }
+}
+
+.shake {
+  animation: shake 0.4s ease-in-out;
+  border: 2px solid red;
+}
+
+
+.transfers-header-line {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 20px;
+}
+
+.transfers-header-line h2 {
+  font-size: 28px;
+  font-weight: 600;
+  font-family: 'Gilroy-SemiBold', sans-serif;
+  margin: 0;
+  white-space: nowrap;
+}
+
+.header-line {
+  
+    width: 1250px; /* Try 150px–300px for variations */
+    height: 1px;
+    background-color: #e0e0e0;
+    margin-top: 12px; /* small gap from heading */
+  }
+  
+
+
+
+
+  .transfers-subtitle-right {
+    margin-top: 12px;
+    font-family: 'Gilroy-Regular', sans-serif;
+    font-size: 18px;
+    color: #555;
+    line-height: 1.4;
+    text-align: right; /* or center if you prefer */
+    position: static; /* remove positioning */
+    width: 100%; /* full width inside the section */
+  }
+  
+  
+
+  @media (max-width: 1280px) {
+    .search-card {
+      flex-direction: column;
+      width: 90%;
+      height: auto;
+      padding: 20px;
+      top: auto;
+      transform: none;
+      left: 0;
+      position: relative;
+    }
+  
+    .search-input,
+    .calendar-wrapper {
+      width: 100%;
+      height: 64px;
+      margin-bottom: 16px;
+    }
+  
+    .search-btn {
+      width: 100%;
+      height: 50px;
+      border-radius: 8px;
+    }
+  }
+
+  
+  @media (max-width: 768px) {
+    .transfer-table th,
+    .transfer-table td {
+      padding: 16px 10px;
+      font-size: 14px;
+    }
+  
+    .transfers-section {
+      padding: 40px 20px;
+    }
+  
+    .header-line {
+      width: 100%;
+    }
+  }
+  
+  
+  @media (max-width: 1024px) {
+    .transfer-banner-image {
+      width: 100%;
+      height: auto;
+      border-radius: 0;
+    }
+  
+    .banner-overlay h1 {
+      font-size: 28px;
+      padding: 0 20px;
+    }
+  
+    .banner-overlay p {
+      font-size: 16px;
+      padding: 0 20px;
+    }
+  
+    .search-card {
+      flex-direction: column;
+      width: 90%;
+      height: auto;
+      padding: 20px;
+      gap: 20px;
+      top: 70%;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+  
+    .search-input,
+    .calendar-wrapper {
+      width: 100%;
+      height: 56px;
+      padding: 10px 16px;
+      font-size: 18px;
+    }
+  
+    .search-btn {
+      width: 100%;
+      height: 48px;
+      font-size: 18px;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .transfers-section {
+      padding: 40px 20px;
+    }
+  
+    .transfers-header-line {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+  
+    .header-line {
+      width: 100%;
+    }
+  }
+  @media (max-width: 1024px) {
+    .banner-overlay {
+      top: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 0 16px;
+      text-align: center;
+    }
+  
+    .banner-overlay h1 {
+      font-size: 24px;
+      line-height: 1.3;
+      margin-bottom: 12px;
+    }
+  
+    .banner-overlay p {
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+  
+    .search-card {
+      position: relative;
+      top: 0;
+      transform: none;
+      width: 90%;
+      max-width: 600px;
+      flex-direction: column;
+      align-items: stretch;
+      margin: 20px auto;
+      padding: 24px 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      z-index: 5;
+    }
+  
+    .search-input,
+    .calendar-wrapper {
+      width: 100%;
+      height: 56px;
+      margin-bottom: 16px;
+      font-size: 18px;
+      border-radius: 8px;
+      padding-left: 16px;
+    }
+  
+    .search-btn {
+      width: 100%;
+      height: 48px;
+      font-size: 18px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+  
+    .transfer-banner-image {
+      height: 450px;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 0;
+    }
+  
+    .transfers-subtitle-right {
+      display: none;
+    }
+  
+    .transfers-section {
+      padding: 24px;
+    }
+  
+    .transfer-table {
+      font-size: 15px;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .search-card {
+      flex-direction: row; /* ⬅️ Horizontal alignment */
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 20px;
+      row-gap: 20px;
+    }
+  
+    .search-input,
+    .calendar-wrapper {
+      flex: 1;
+      min-width: 200px;
+      height: 80px; /* make it consistent */
+      margin: 0 10px;
+    }
+  
+    .search-btn {
+      flex-basis: 100%;
+      height: 50px;
+      margin-top: 10px;
+    }
+  }
+  
