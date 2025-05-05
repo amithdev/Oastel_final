@@ -49,11 +49,11 @@
   
   .booking-content {
     display: flex;
-    gap: 40px;
     flex-wrap: wrap;
-    margin-left: 50px; /* shifts content inside to the left */
+    justify-content: space-between;
+    gap: 20px;
   }
-  
+
   .booking-left label {
     font-family: 'Gilroy-Medium', sans-serif;
     font-size: 20px;
@@ -61,11 +61,18 @@
     margin-bottom: 10px;
     display: block;
   }
+
+  .booking-left {
+    flex: 1 1 55%;
+    min-width: 400px;
+  }
   
-  .booking-left, .booking-right {
-    flex: 1;
+  .booking-right {
+    flex: 1 1 40%;
     min-width: 300px;
   }
+  
+
 
   .booking-right input,
 .booking-right textarea,
@@ -82,8 +89,8 @@
   .datetime {
     display: flex;
     flex-direction: column; /* stack vertically */
-    gap: 20px;
-    margin-top: 10px;
+    gap: 50px;
+    margin-top: 40px;
   }
   
   .calendar-btn {
@@ -202,11 +209,7 @@
     cursor: pointer;
   }
   
-  .total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
+
   
   .payment-btn {
     margin-top: 10px;
@@ -219,6 +222,17 @@
     font-size: 16px;
     cursor: pointer;
   }
+
+
+  .total-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Keep both on the left */
+    gap: 80px; /* <== THIS gives horizontal space between total and button */
+    margin-top: -40px; /* Optional: move the total section down */
+  }
+  
+  
   
   .booking-right input,
   .booking-right textarea {
@@ -242,6 +256,10 @@
   .booking-right textarea {
     resize: none;
     height: 60px;
+  }
+  
+  .travellers-section {
+    margin-top: 120px;
   }
   
   
@@ -782,4 +800,52 @@
 
 input.invalid {
   border: 1.5px solid red;
+}
+
+.availability-check {
+  margin-top: 20px;
+}
+
+.availability-btn {
+  padding: 12px 24px;
+  background-color: #0C7157;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.availability-btn:hover {
+  background-color: #055e46;
+}
+
+.availability-status {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.flatpickr-calendar {
+  min-width: 250px !important; /* or same width as your button */
+}
+
+@keyframes calendarFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px); /* slight upward motion */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Apply fade animation when calendar opens */
+.flatpickr-calendar.open {
+  animation: calendarFadeIn 0.3s ease-out;
+}
+
+#selectedTime {
+  transition: all 0.3s ease;
 }
