@@ -28,6 +28,11 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
+from decouple import config
+
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
+STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 # Application definition
 
@@ -40,8 +45,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'ckeditor',
-    'admin_interface',
-    'colorfield',  # required by admin_interface
 ]
 
 MIDDLEWARE = [
@@ -139,9 +142,11 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-STRIPE_SECRET_KEY = 'REMOVED_SECRET51RCu9ARXfGYEOI0Ds7rKP9NNwDZmhZNpFjWquvHZmckBmOgexenuad9ZvmFNXIbBSVCDVoNLjEVPKmr4QBSKr5BS00iKcHGBSB'
-STRIPE_PUBLISHABLE_KEY = 'your_publishable_key'
 
+
+from decouple import config
+
+STRIPE_SECRET_KEY = config("STRIPE_SECRET_KEY")
 
 
 
