@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: oastel-backend
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn oastel_backup.wsgi:application"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: oastel_backup.settings
