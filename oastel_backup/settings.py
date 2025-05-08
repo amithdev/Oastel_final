@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'ckeditor',
+    'cloudinary',
+    'cloudinary_storage',
 ]
 
 MIDDLEWARE = [
@@ -149,7 +151,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 
@@ -166,3 +168,16 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'amithdev.ami001@gmail.com'  # your Gmail
 EMAIL_HOST_PASSWORD = 'inpd edvc qcbz jruj'  # Gmail App Password
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+
+
+# Cloudinary credentials
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dsipnhkzd',
+    'API_KEY': '942743191746215',
+
+
+    'API_SECRET': 'TPg4042HBP8_xexE4pDaXOWNIpc',
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
