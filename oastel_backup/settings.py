@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'ckeditor',
     'cloudinary',
     'cloudinary_storage',
+    
+    
 ]
 
 MIDDLEWARE = [
@@ -135,6 +137,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
+MEDIA_URL = '/media/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -150,34 +153,31 @@ STATICFILES_DIRS = [BASE_DIR / "core/static"]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 
 
 from decouple import config
 
-STRIPE_SECRET_KEY = config("STRIPE_SECRET_KEY")
+# ✅ Stripe (don't repeat above!)
+STRIPE_SECRET_KEY = config('STRIPE_SECRET_KEY')
+STRIPE_PUBLIC_KEY = config('STRIPE_PUBLIC_KEY')
 
-
-
+# ✅ Email
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'amithdev.ami001@gmail.com'  # your Gmail
-EMAIL_HOST_PASSWORD = 'inpd edvc qcbz jruj'  # Gmail App Password
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+import os
+from pathlib import Path
 
+BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Cloudinary credentials
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'dsipnhkzd',
-    'API_KEY': '942743191746215',
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-
-    'API_SECRET': 'TPg4042HBP8_xexE4pDaXOWNIpc',
-}
-
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+# This must NOT be set to Cloudinary anymore
+DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
